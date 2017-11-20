@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#banner{
+				width: 760px;
+				height: 300px;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			ul li{
+				list-style: none;
+				width: 760px;
+				height: 300px;
+			}
+			ul li .img1{
+				position: absolute;
+			
+				top: 0;
+				left: -760px;
+			}
+			ul li .img2{
+				position: absolute;
+				top: 0;
+				left: -20px;
+				display: none;
+			}
+			#btn{
+				width: 120px;
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+			#btn span{
+				width: 15px;
+				height: 15px;
+				border: 1px solid #fff;
+				display: inline-block;
+			}
+			#btn span.first{
+				background: #fff;
+			}
+			.sdiv{
+				width: 40px;
+				height: 40px;
+				color: #FFFFFF;
+				background: #111;
+				position: absolute;
+				top: 50%;
+				margin-top: -15px;
+				cursor: pointer;
+				font-size: 20px;
+				text-align: center;
+				line-height: 40px;
+				font-weight: 600;
+			}
+			#left{
+				left: 10px;
+			}
+			#right{
+				right:10px
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="banner">
+			<ul id="list">
+				<li style="background: url(img/bg1.jpg) no-repeat;">
+					<img class="img1" src="img/text1.png"/>
+					<img class="img2" src="img/con1.png"/>
+				</li>
+				<li style="background: url(img/bg2.jpg) no-repeat;">
+					<img class="img1" src="img/text2.png"/>
+					<img class="img2" src="img/con2.png"/>
+				</li>
+				<li style="background: url(img/bg3.jpg) no-repeat;">
+					<img class="img1" src="img/text3.png"/>
+					<img class="img2" src="img/con3.png"/>
+				</li>
+				<li style="background: url(img/bg4.jpg) no-repeat;">
+					<img class="img1" src="img/text4.png"/>
+					<img class="img2" src="img/con4.png"/>
+				</li>
+				<li style="background: url(img/bg5.jpg) no-repeat;">
+					<img class="img1" src="img/text5.png"/>
+					<img class="img2" src="img/con5.png"/>
+				</li>-->
+			</ul>
+			<div id="btn">
+				<span class="first"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div id="left" class="sdiv">
+				<
+			</div>
+			<div id="right" class="sdiv">
+				>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var $li = $('#list li');
+			var $index = 0;
+			anim();
+			function anim(){
+				$li.eq($index).find('.img1').animate({'left':0},1000,function(){
+					$li.eq($index).find('.img2').css('display','block').animate({'left':0},1000,function(){
+						$li.eq($index).fadeOut(200,function(){
+							console.log($index)
+							$li.eq($index).find('.img1').css('left','-760px');
+							$li.eq($index).find('.img2').css({'left':'-20px','display':'none'});
+						});
+					});
+				});
+			};
+			setInterval(function(){
+				$index ++;
+				if( $index > 4 ){
+					$index = 0;
+				}
+				$li.eq($index).fadeIn(200);
+				anim();
+				$('#btn span').eq($index).addClass('first').siblings().removeClass('first');
+			},2500)
+			var oLeft = $('#left');
+			var oRight = $('#right');
+		</script>
+	</body>
+</html>

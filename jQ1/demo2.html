@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="main">孔子</div>
+		<h4>论语</h4>
+		<div class="one">子在川上曰：</div>
+		<p>“逝者如斯夫！</p>
+		<p>不舍昼夜。”</p>
+		
+		
+		
+		<!--1.找到.one改变他的字体颜色 ；
+		2.找到#main给他增加border：1px solid red；
+		3.找到p标签元素给他添加边框 border：1px solid green；
+		4.找到全部元素 改变字体 28px；
+		5.找到ID ClassName 添加background：red；-->
+
+		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.one').css({'color':'red','font-size':'20px'});
+			$('#main').css({'border':'1px solid red'});
+			$('p').css({'border':'1px solid green'});
+			$('*').css({'fontSize':'28px'});
+			$('#main,.one').css({background:'red'});
+		</script>
+	</body>
+</html>
